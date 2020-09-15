@@ -1,24 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ThingsToReplace from "./ThingsToReplace"
+import "./App.css";
+
 
 function App() {
+  const [textInput, setTextInput] = useState("");
+  const [replacements, setReplacements] = useState([]);
+
+  const textInputHandler = (event) => {
+    event.preventDefault()
+    setTextInput(event.target.value)
+  }
+
+
+
+  const testArray = [
+    {
+      fieldToReplace: "<company>",
+      newText: "ecobee"
+    },
+    {
+      fieldToReplace: "<name>",
+      newText: "John"
+    },
+    {
+      fieldToReplace: "",
+      newText: ""
+    }
+  ]
+  
+
+  const addToReplacementArray = (fieldToReplace, newText) => {
+    // event.preventDefault()
+    console.log(fieldToReplace,newText)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <ThingsToReplace addToReplacementArray={addToReplacementArray}/>
+      <form action="submit" >
+        <label>Input your long text</label>
+        <input type="text" name="textInput" onChange={textInputHandler} />
+      </form>
+      <textarea value={textInput}></textarea>
     </div>
   );
 }
