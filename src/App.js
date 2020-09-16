@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import ThingsToReplace from "./ThingsToReplace"
-import MappedList from "./MappedList"
 import "./App.css";
 
 
 function App() {
   const [textInput, setTextInput] = useState("");
-  const replacements = []
+  const [replacements, setReplacements] = useState([])
 
   const textInputHandler = (event) => {
     event.preventDefault()
@@ -14,17 +13,26 @@ function App() {
   }
 
   const addToReplacementArray = (fieldToReplace, newText) => {
-    replacements.push({
-      fieldToReplace: fieldToReplace,
-      newText: newText
-    })
-    console.log(replacements, "this is my replacmeent")
+    setReplacements([
+      ...replacements,
+      {
+        fieldToReplace: fieldToReplace,
+        newText: newText
+      }
+    ])
   }
   return (
     <div className="App">
       
       <ThingsToReplace addToReplacementArray={addToReplacementArray}/>
-      <MappedList replacements={replacements} />
+      <div className="mappedObjects">
+        <ul>
+            {replacements.map((items) =>
+              <li>Replace {items.fieldToReplace} with {items.newText}
+              </li>)
+            }
+        </ul>
+      </div>
       <form action="submit" >
         <label>Input your long text</label>
         <input type="text" name="textInput" onChange={textInputHandler} />
