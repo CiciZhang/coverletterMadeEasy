@@ -59,29 +59,32 @@ function App() {
     <div className="App">
       <Header></Header>
       <main>
-        <ThingsToReplace addToReplacementArray={addToReplacementArray} />
-        <div className="mappedObjects">
-          <ul>
-            {replacements.map((items) =>
-              <li>Replace {items.fieldToReplace} with {items.newText}
-              </li>)
-            }
-          </ul>
-        </div>
-        <form action="submit" onSubmit={submitHandler}>
-          <label>Input your template</label>
-          <input type="text" name="textInput" onChange={textInputHandler} value={textInput} />
-        </form>
-        <textarea value={finalText}></textarea>
-        <div>
-          <button onClick={() => { replaceText(replacements, finalText) }}>Update Text</button>
-          <button onClick={() => { setFinalText(originalText) }}>Revert Text</button>
+        <div className="replacements">
           <button onClick={() => { setReplacements([]) }}>Clear Replacements</button>
-          <button onClick={() => { setFinalText("") }}>Clear Template</button>
-          <button onClick={deleteAll}>Clear All</button>
+          <ThingsToReplace addToReplacementArray={addToReplacementArray} />
+          <div className="mappedObjects">
+            <ul>
+              {replacements.map((items) =>
+                <li>Replace {items.fieldToReplace} with {items.newText}
+                </li>)
+              }
+            </ul>
+          </div>
+        </div>
+        <div className="template">
+          <div>
+            <button onClick={() => { replaceText(replacements, finalText) }}>Update Text</button>
+            <button onClick={() => { setFinalText(originalText) }}>Revert Text</button>
+            <button onClick={() => { setFinalText("") }}>Clear Template</button>
+            <button onClick={deleteAll}>Clear All</button>
+          </div>
+          <form action="submit" onSubmit={submitHandler}>
+            <label>Input your template</label>
+            <input type="text" name="textInput" onChange={textInputHandler} value={textInput} />
+          </form>
+          <textarea value={finalText}></textarea>
         </div>
       </main>
-     
     </div>
   )
 }
