@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/coverletterMadeEasy/static/css/main.05f1803f.chunk.css",
+    "main.js": "/coverletterMadeEasy/static/js/main.bc6b1e5e.chunk.js",
+    "main.js.map": "/coverletterMadeEasy/static/js/main.bc6b1e5e.chunk.js.map",
+    "runtime-main.js": "/coverletterMadeEasy/static/js/runtime-main.5d4f0458.js",
+    "runtime-main.js.map": "/coverletterMadeEasy/static/js/runtime-main.5d4f0458.js.map",
+    "static/js/2.d822a378.chunk.js": "/coverletterMadeEasy/static/js/2.d822a378.chunk.js",
+    "static/js/2.d822a378.chunk.js.map": "/coverletterMadeEasy/static/js/2.d822a378.chunk.js.map",
+    "index.html": "/coverletterMadeEasy/index.html",
+    "precache-manifest.36859818c4edb09cbbe5e24c29615e09.js": "/coverletterMadeEasy/precache-manifest.36859818c4edb09cbbe5e24c29615e09.js",
+    "service-worker.js": "/coverletterMadeEasy/service-worker.js",
+    "static/css/main.05f1803f.chunk.css.map": "/coverletterMadeEasy/static/css/main.05f1803f.chunk.css.map",
+    "static/js/2.d822a378.chunk.js.LICENSE.txt": "/coverletterMadeEasy/static/js/2.d822a378.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d4f0458.js",
+    "static/js/2.d822a378.chunk.js",
+    "static/css/main.05f1803f.chunk.css",
+    "static/js/main.bc6b1e5e.chunk.js"
+  ]
+}
