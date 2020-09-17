@@ -7,6 +7,7 @@ function App() {
   const [textInput, setTextInput] = useState("");
   const [replacements, setReplacements] = useState([])
   const [finalText, setFinalText] = useState("")
+  const [originalText, setOriginalText] = useState("")
 
   const textInputHandler = (event) => {
     event.preventDefault()
@@ -26,6 +27,7 @@ function App() {
   const submitHandler = (event) => {
     event.preventDefault()
     setFinalText(textInput)
+    setOriginalText(textInput)
     setTextInput("")
   }
 
@@ -44,6 +46,13 @@ function App() {
     }
   }
 
+  const deleteAll = () => {
+    if (window.confirm('Are you sure you want to clear everything?')) {
+      setReplacements([])
+      setFinalText("")
+      setOriginalText("")
+    }
+}
   return (
     <div className="App">
       
@@ -63,6 +72,8 @@ function App() {
       <textarea value={finalText}></textarea>
       <div>
         <button onClick={()=>{replaceText(replacements, finalText)}}>Update Text</button>
+        <button onClick={()=>{setFinalText(originalText)}}>Revert Text</button>
+        <button onClick={deleteAll}>Clear All</button>
   
     </div>
     </div>
