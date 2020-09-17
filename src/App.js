@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ThingsToReplace from "./ThingsToReplace"
+import Header from "./Header"
 import "./App.css";
 
 
@@ -53,31 +54,35 @@ function App() {
       setOriginalText("")
     }
 }
+
   return (
     <div className="App">
-      
-      <ThingsToReplace addToReplacementArray={addToReplacementArray}/>
-      <div className="mappedObjects">
-        <ul>
+      <Header></Header>
+      <main>
+        <ThingsToReplace addToReplacementArray={addToReplacementArray} />
+        <div className="mappedObjects">
+          <ul>
             {replacements.map((items) =>
               <li>Replace {items.fieldToReplace} with {items.newText}
               </li>)
             }
-        </ul>
-      </div>
-      <form action="submit" onSubmit={submitHandler}>
-        <label>Input your long text</label>
-        <input type="text" name="textInput" onChange={textInputHandler} value={textInput} />
-      </form>
-      <textarea value={finalText}></textarea>
-      <div>
-        <button onClick={()=>{replaceText(replacements, finalText)}}>Update Text</button>
-        <button onClick={()=>{setFinalText(originalText)}}>Revert Text</button>
-        <button onClick={deleteAll}>Clear All</button>
-  
+          </ul>
+        </div>
+        <form action="submit" onSubmit={submitHandler}>
+          <label>Input your template</label>
+          <input type="text" name="textInput" onChange={textInputHandler} value={textInput} />
+        </form>
+        <textarea value={finalText}></textarea>
+        <div>
+          <button onClick={() => { replaceText(replacements, finalText) }}>Update Text</button>
+          <button onClick={() => { setFinalText(originalText) }}>Revert Text</button>
+          <button onClick={() => { setReplacements([]) }}>Clear Replacements</button>
+          <button onClick={() => { setFinalText("") }}>Clear Template</button>
+          <button onClick={deleteAll}>Clear All</button>
+        </div>
+      </main>
+     
     </div>
-    </div>
-   
   )
 }
 
